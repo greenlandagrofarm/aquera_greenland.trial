@@ -34,13 +34,20 @@
             border: none;
             z-index: 1;
         }
-        /* Loader dengan teks Biru Navy Modern */
+        /* Loader dengan Logo dan Teks Biru Navy Modern */
         #loader {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            /* Warna Biru Navy (Sangat cocok untuk tema perikanan/AQUERA) */
+            /* Menggunakan Flexbox agar susunan logo dan teks tegak lurus ke bawah */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px; /* Jarak vertikal antara gambar logo dan teks tulisan */
+            
+            /* Warna Biru Navy */
             color: #1e3a8a;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             text-align: center;
@@ -49,11 +56,21 @@
             letter-spacing: 0.1em;
             z-index: 2;
         }
+
+        /* Mengatur dimensi gambar logo loader */
+        #loader img {
+            width: 140px; /* Lebar logo bisa disesuaikan, misal 140px agar proposional */
+            height: auto;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body>
 
-    <div id="loader">Memuat AQUERA Mohon Tunggu..Refresh Jika Koneksi Terputus..</div>
+    <div id="loader">
+        <img src="https://i.ibb.co.com/ynwgTZfj/aquera.png" alt="Logo AQUERA">
+        <div>Memuat AQUERA Mohon Tunggu..Refresh Jika Koneksi Terputus..</div>
+    </div>
     
     <iframe 
         src="https://script.google.com/macros/s/AKfycbyfmw_ZdK-Xx1eCQCaxWcPMgrLFRmn9Vhu1ZkxwNXNH1h9dgxxcSunHkFZg7ZMhel-K/exec" 
